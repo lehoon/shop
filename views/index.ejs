@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>美菜商城</title>
+    <link rel="stylesheet" href="/dist/css/meicai.css">
+    <link rel="stylesheet" href="/dist/css/theme/normal.css">
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+</head>
+
+<body>
+<div style="padding: 5px 10px;background-color: #21b387;overflow:auto; display:none;" class="js-search-bar">
+  <div class="js-search-back-block" style="float:left;">
+    <a href="javascript:void(0)"><i class="icon-back" style="border-bottom: 1px solid #fff;border-left:1px solid #fff;width:8px;height:8px;margin-left: 2px;"></i>返回</a>
+  </div>
+  <div class="logo"><img width="58px" height="24px" src="/weixin/image/logo2.png"></div>
+  <div class="js-search-input-block logo-div">
+    <input type="text" placeholder="输入菜名搜索" class="js-search search" style="float:left;">
+    <img src="/weixin/image/searchcancel.png" id="searchcancel" width="21px">
+  </div>
+  <div class="js-search-btn" style="float:left;"><input type="button" value="搜索" class="btn" id="search-btn"></div>
+</div>
+<div id="searchPanel" class="js-search-content hide scroll-y" style="height: 865px;display:none;">
+  <div class="searchlist">
+    <div class="his-search">
+      <div class="title">历史搜索</div>
+      <div class="veg">
+
+      </div>
+    </div>
+    <input type="button" value="清空历史记录" class="btn" id="clean-history" style="background-color:#e4e4e4;color:#000;margin:20px 0 0 -55px;position:relative;left:50%;">
+  </div>
+</div>
+<div id="searchListBlock" class="js-search-content hide scroll-y" style="height: 865px;display:none;">
+  <div class="item-loading" id="search-item-loading" style="text-align: center;line-height: 20px;vertical-align: middle;">
+    <img src="/weixin/image/product-image-loader.gif" style="width: 20px;vertical-align: middle;padding-right: 5px;">
+    <span style="display: inline-block; line-height: 20px;color:#999;">加载中...</span>
+  </div>
+  <table class="table table-condensed" style="margin-bottom:80px;">
+    <tbody class="js-search-content-detail ul-bottom-line">
+    </tbody>
+  </table>
+</div>
+<div style="width:100%;height:47px; display:none;">
+  <div class="arrow-l-div"><span></span></div>
+  <div class="js-menu-bar" id="ma-menu-bar" style="display:inline-block;float:left;height:47px; width:90%;overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling: touch; position:relative;">
+    <div class="menu-mask" style="height: 37px; text-align: center; line-height: 37px; color: rgb(255, 255, 255); font-size: 14px; font-weight: bold; position: absolute; top: 0px; left: 0px; width: 100%; display: none; background-color: rgba(0, 0, 0, 0.6);">&lt;--请在此左右滑动切换分类--&gt;</div>
+    <ul class="menu fl">
+      <li pid="0" >我的收藏</li>
+      <li ccat1id="0" pid="-998" class="">限时秒杀</li>
+      <li ccat1id="1" pid="1000" class="active">新鲜蔬菜</li>
+      <li ccat1id="2" pid="5815">时令水果</li>
+      <li ccat1id="3" pid="1010">禽蛋肉类</li>
+      <li ccat1id="4" pid="1046">水产冻货</li>
+      <li ccat1id="5" pid="1036">调料其他</li>
+      <li ccat1id="6" pid="1027">米面粮油</li>
+      <li ccat1id="7" pid="1050">酒水饮料</li>
+      <li ccat1id="8" pid="1060">餐厨用品</li>
+      <li ccat1id="9" pid="-999">大宗特卖</li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="arrow-r-div"><span></span></div>
+</div>
+
+<div class="js-content" style="height: 861px;">
+  <div id="subCategoryBlock" class="fl leftSider scroll-y" style="height:100%;width:25%; position:relative;">
+    <ul class="js-category" style="margin-bottom:80px;">
+      <li ccat2id="0" pid="0" class="cp active" style="word-wrap:break-word">促销<i class="menu-triangle" style="display: inline-block;"></i></li>
+      <li ccat2id="1" pid="1001" class="cp" style="word-wrap:break-word">叶菜类<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="2" pid="1003" class="cp" style="word-wrap:break-word">根茎类<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="3" pid="1002" class="cp" style="word-wrap:break-word">茄果类<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="4" pid="1004" class="cp" style="word-wrap:break-word">豆类<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="5" pid="1005" class="cp" style="word-wrap:break-word">葱姜蒜<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="6" pid="1006" class="cp" style="word-wrap:break-word">菌类<i class="menu-triangle" style="display: none;"></i></li>
+      <li ccat2id="7" pid="1008" class="cp" style="word-wrap:break-word">特菜<i class="menu-triangle" style="display: none;"></i></li>
+    </ul>
+  </div>
+  <div id="mainListBlock" class="fl scroll-y" style="position: relative; height: 100%; width: 75%;" page="normal">
+    <table class="table table-condensed" style="margin-bottom:80px;">
+      <tbody class="js-category-detail ul-bottom-line">
+      <tr class="calculate" itemname="新鲜蔬菜">
+        <td class="ci_id_info" itemid="223032" style="padding-left:15px;position:relative;">
+          <div class="title-con n-cang">
+            <span class="js-c-name">水萝卜</span>(<span class="js-level">促销★ | 新鲜</span>)
+          </div>
+          <span class="js-alias">红萝卜</span>
+          <div style="position:absolute;top:0;left:0;background:rgba(0,0,0,0.5);color:#fff;text-align:center;" class="hide js-td1-mask"></div>
+          <div class="price-des">
+            <span class="js-price price">2.60</span>元/<span class="js-format">袋(1斤)</span>
+          </div>
+          <input type="hidden" id="isNextDay" value="false">
+        </td>
+        <td class="v-m" style="width:43%;text-align:center;">
+          <div class="ml10 product-img-wrapper">
+            <img class="" data-src="http://img.yunshanmeicai.com/245b19076b652d8cbf2bfaab671cec14_thumb.png" data-srcoriginal="http://img.yunshanmeicai.com/245b19076b652d8cbf2bfaab671cec14.png" src="http://img.yunshanmeicai.com/245b19076b652d8cbf2bfaab671cec14.png">
+          </div>
+          <div class="modifydiv" style="height:40px;line-height:40px;font-size:16px;">
+            <a class="js-minus cp font20" style="color:#86a744;font-weight:bold;border: 1px solid;">－</a>
+            <input type="tel" class="js-count tc" pattern="d*" style="width:36px;line-height:18px;" value="0">
+            <input type="hidden" class="js-primary-key" value="223032">
+            <input type="hidden" class="promote_type" value="">
+            <input type="hidden" class="promote_amount" value="-1">
+            <input type="hidden" class="promote_limit" value="-1">
+            <input type="hidden" class="js-sale_status" sale_status="1" start_sale_time="08:00" end_sale_time="23:00">
+            <a class="js-plus cp font20" style="color:#21b387;font-weight:bold;border: 1px solid;">＋</a>
+          </div>
+        </td>
+      </tr>
+      <tr class="calculate" itemname="新鲜蔬菜">
+        <td class="ci_id_info" itemid="223037" style="padding-left:15px;position:relative;">
+          <div class="title-con n-cang">
+            <span class="js-c-name">红皮青蒜</span>(<span class="js-level">促销★</span>)
+          </div>
+          <span class="js-alias">蒜苗</span>
+          <div style="position:absolute;top:0;left:0;background:rgba(0,0,0,0.5);color:#fff;text-align:center;" class="hide js-td1-mask"></div>
+          <div class="price-des">
+            <span class="js-price price">6.80</span>元/<span class="js-format">袋(2斤)</span>
+            <div class="js-price-ref"> 每斤3.40元</div>
+          </div>
+          <input type="hidden" id="isNextDay" value="false">
+        </td>
+        <td class="v-m" style="width:43%;text-align:center;">
+          <div class="ml10 product-img-wrapper">
+            <img class="" data-src="http://img.yunshanmeicai.com/416a8c682d82ae931e3b512ae423bce8_thumb.png" data-srcoriginal="http://img.yunshanmeicai.com/416a8c682d82ae931e3b512ae423bce8.png" src="http://img.yunshanmeicai.com/416a8c682d82ae931e3b512ae423bce8.png">
+          </div>
+          <div class="modifydiv" style="height:40px;line-height:40px;font-size:16px;">
+            <a class="js-minus cp font20" style="color:#86a744;font-weight:bold;border: 1px solid;">－</a>
+            <input type="tel" class="js-count tc" pattern="d*" style="width:36px;line-height:18px;" value="0">
+            <input type="hidden" class="js-primary-key" value="223037">
+            <input type="hidden" class="promote_type" value="">
+            <input type="hidden" class="promote_amount" value="-1">
+            <input type="hidden" class="promote_limit" value="-1">
+            <input type="hidden" class="js-sale_status" sale_status="1" start_sale_time="08:00" end_sale_time="23:00">
+            <a class="js-plus cp font20" style="color:#21b387;font-weight:bold;border: 1px solid;">＋</a>
+          </div>
+          <div class="price select-price">
+            <input type="hidden" class="js-standard-item-num" value="2">
+            <span class="select-count">已选
+                <span class="js-input-echo">0</span>袋(2斤)
+            </span>共
+            <span class="js-chosen-count-con">
+                <span class="js-chosen-count">0</span>斤
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr class="calculate" itemname="新鲜蔬菜">
+        <td class="ci_id_info" itemid="223047" style="padding-left:15px;position:relative;">
+          <div class="title-con n-cang">
+            <span class="js-c-name">黄心土豆</span>(<span class="js-level">促销★ | 新/大/荷兰十五号</span>)
+          </div>
+          <div style="position:absolute;top:0;left:0;background:rgba(0,0,0,0.5);color:#fff;text-align:center;" class="hide js-td1-mask"></div>
+          <div class="price-des">
+            <span class="js-price price">9.95</span>元/<span class="js-format">袋(5斤)</span>
+            <div class="js-price-ref"> 每斤1.99元</div>
+          </div>
+          <input type="hidden" id="isNextDay" value="false">
+        </td>
+        <td class="v-m" style="width:43%;text-align:center;">
+          <div class="ml10 product-img-wrapper">
+            <img class="" data-src="http://img.yunshanmeicai.com/0392d59b84a6aef3065997c421e2a402_thumb.png" data-srcoriginal="http://img.yunshanmeicai.com/0392d59b84a6aef3065997c421e2a402.png" src="http://img.yunshanmeicai.com/0392d59b84a6aef3065997c421e2a402.png">
+          </div>
+          <div class="modifydiv" style="height:40px;line-height:40px;font-size:16px;">
+            <a class="js-minus cp font20" style="color:#86a744;font-weight:bold;border: 1px solid;">－</a>
+            <input type="tel" class="js-count tc" pattern="d*" style="width:36px;line-height:18px;" value="0">
+            <input type="hidden" class="js-primary-key" value="223047">
+            <input type="hidden" class="promote_type" value="">
+            <input type="hidden" class="promote_amount" value="-1">
+            <input type="hidden" class="promote_limit" value="-1">
+            <input type="hidden" class="js-sale_status" sale_status="1" start_sale_time="08:00" end_sale_time="23:00">
+            <a class="js-plus cp font20" style="color:#21b387;font-weight:bold;border: 1px solid;">＋</a>
+          </div>
+          <div class="price select-price">
+            <input type="hidden" class="js-standard-item-num" value="5">
+            <span class="select-count">已选<span class="js-input-echo">0</span>袋(5斤)</span>
+            共
+            <span class="js-chosen-count-con">
+                <span class="js-chosen-count">0</span>斤
+            </span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="item-loading" id="item-loading" style="text-align: center; margin-bottom: 10px; line-height: 20px; vertical-align: top; display: none;">
+      <img src="/weixin/image/product-image-loader.gif" style="width: 20px;vertical-align: bottom;padding-right: 5px;">
+      <span style="display: inline-block; line-height: 20px;color:#999;">加载中...</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div style="position:fixed;bottom:50px;background-color:#F3FAF8;height: 36px;line-height: 36px;width: 100%;font-size:14px;color:#36b68c;" class="tc js-login">
+  <a href="/login">你尚未登录美菜，立刻去登录/注册</a>
+</div>
+<div class="foot-menu">
+  <div class="selected-info-box" style="display: none;">
+    <div class="bubble">
+      <span class="js-item-count">0</span>种，
+      <span class="js-item-total">0</span>元
+    </div>
+  </div>
+  <div class="index foot-tab">
+    <a href="javascript:void(0)" class="">
+      <span class="meicai-icon-homepage"></span>
+      <div class="tab-text">首页</div>
+    </a>
+  </div>
+  <div class="allgoods foot-tab">
+    <a href="javascript:void(0)" class="active">
+      <span class="meicai-icon-Basket"></span>
+      <div class="tab-text">全部菜品</div>
+    </a>
+  </div>
+  <div class="cart foot-tab">
+    <a href="javascript:void(0)" class="">
+      <span class="meicai-icon-Group2"></span>
+      <div class="tab-text">购物车</div>
+    </a>
+  </div>
+  <div class="home foot-tab">
+    <a href="javascript:void(0)" class="">
+      <span class="meicai-icon-my"></span>
+      <div class="tab-text">我的</div>
+    </a>
+  </div>
+</div>
+<!-- 成功后才调用微信服务器端接口-->
+<script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({"appId":"wx5e3e0f48d8add3c9","timestamp":1458028834,"nonceStr":"47FZCPcextGKTyfe","signature":"0a7381e8c0f82ec962a8b36df23501fda0f89faf","jsApiList":["getLocation","onMenuShareTimeline","onMenuShareAppMessage"]});
+</script>
+<script>
+  wx.ready(function () {
+    wx.onMenuShareTimeline({
+      title: '美菜商城', // 分享标题
+      link: '', // 分享链接
+      imgUrl: 'http://img.yunshanmeicai.com/meicai_icon.jpg', // 分享图标
+      success: function () {
+      },
+      cancel: function () {
+      }
+    });
+    wx.onMenuShareAppMessage({
+      title: '美菜商城', // 分享标题
+      desc: '美菜网，让天下餐厅没有难做的生意', // 分享描述
+      link: '', // 分享链接
+      imgUrl: 'http://img.yunshanmeicai.com/meicai_icon.jpg', // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () {
+      },
+      cancel: function () {
+      }
+    });
+  });
+</script><!--js load -->
+<script type="text/javascript">
+  window.firstmenu = [{"id":-998,"f_create_user":0,"c_t":1458028834,"u_t":1458028834,"is_deleted":0,"name":"\u9650\u65f6\u79d2\u6740","parent_id":0,"city_id":1,"type":1,"f_leaf":0,"seq":1000000},{"id":1000,"f_create_user":0,"c_t":1439879604,"u_t":1457517763,"is_deleted":0,"name":"\u65b0\u9c9c\u852c\u83dc","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":1},{"id":5815,"f_create_user":0,"c_t":1441887119,"u_t":1457517764,"is_deleted":0,"name":"\u65f6\u4ee4\u6c34\u679c","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":2},{"id":1010,"f_create_user":0,"c_t":1439879604,"u_t":1457517765,"is_deleted":0,"name":"\u79bd\u86cb\u8089\u7c7b","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":3},{"id":1046,"f_create_user":0,"c_t":1439879604,"u_t":1457517766,"is_deleted":0,"name":"\u6c34\u4ea7\u51bb\u8d27","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":4},{"id":1036,"f_create_user":0,"c_t":1439879604,"u_t":1457517767,"is_deleted":0,"name":"\u8c03\u6599\u5176\u4ed6","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":5},{"id":1027,"f_create_user":0,"c_t":1439879604,"u_t":1457517769,"is_deleted":0,"name":"\u7c73\u9762\u7cae\u6cb9","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":6},{"id":1050,"f_create_user":0,"c_t":1439879604,"u_t":1457517770,"is_deleted":0,"name":"\u9152\u6c34\u996e\u6599","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":7},{"id":1060,"f_create_user":0,"c_t":1439879604,"u_t":1457517771,"is_deleted":0,"name":"\u9910\u53a8\u7528\u54c1","parent_id":0,"city_id":0,"type":1,"f_leaf":0,"seq":8},{"id":-999,"f_create_user":0,"c_t":1458028834,"u_t":1458028834,"is_deleted":0,"name":"\u5927\u5b97\u7279\u5356","parent_id":0,"city_id":1,"type":1,"f_leaf":0,"seq":1000000}];
+  window.previewcity = "1";
+  window.isPreview = true;
+  window.cartpage = false;
+  function EnterPress(e){ //传入 event 
+    var e = e || window.event;
+    if(e.keyCode == 13){
+      $("#search-btn").click();
+    }
+  }
+</script>
+<script src="/dist/js/zepto.js"></script>
+<script src="/dist/js/all.js"></script>
+<script src="/dist/js/goodlist.js"></script>
+<script type="text/javascript">
+  footerActive.activeAllgoods();
+</script>
+</body>
+</html>

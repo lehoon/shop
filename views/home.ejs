@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/dist/css/meicai.css">
+    <link rel="stylesheet" href="/dist/css/index.css">
+    <link rel="stylesheet" href="/dist/theme/normal.css">
+    <title>个人中心</title>
+    <script>
+        var _hmt = _hmt || [];
+    </script>
+</head>
+<body>
+<div class="info unlogin">
+    <div class="login">
+        <a href="/login" style="color:#fff">登录/注册</a>
+    </div>
+</div>
+<div class="entrance">
+    <ul>
+        <li>
+            <a href="/login?sucurl=/deal/list?backdir=HOME">
+                <span class="meicai-icon meicai-icon-list"></span>
+                <span class="list-text">我的订单</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/login?sucurl=/wxpay/list?backdir=HOME">
+                <span class="meicai-icon meicai-icon-wallet"></span>
+                <span class="list-text">我的钱包</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/login?sucurl=/coupon/list?backdir=HOME">
+                <span class="meicai-icon meicai-icon-Coupons"></span>
+                <span class="list-text">我的红包</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/login?sucurl=/customAddress/index?backdir=HOME">
+                <span class="meicai-icon meicai-icon-Administration"></span>
+                <span class="list-text">收货人管理</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="/login?sucurl=/onlinesearch/want?backdir=HOME">
+                <span class="meicai-icon meicai-icon-new"></span>
+                <span class="list-text">我希望有</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="http://www.sobot.com/chat/robot.action?sysNum=6e8f3b03eb354e5bb2379ec7dbe1ed8c">
+                <span class="meicai-icon meicai-icon-Consultation"></span>
+                <span class="list-text">在线客服</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+        <li>
+            <a href="http://opp.yunshanmeicai.com/doc/saledoc?backdir=HOME">
+                <span class="meicai-icon meicai-icon-customerservice"></span>
+                <span class="list-text">售后规则</span>
+                <i class="icon-next"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="service-tel" style="padding:15px 12px;">
+        <a href="tel://4006-135-135">
+            <span class="meicai-icon meicai-icon-Telephone"></span>
+            <span class="list-text">客服热线 : 4006-135-135</span>
+        </a>
+    </div>
+    <div style="height: 68px;">
+    </div>
+</div>
+<div class="foot-menu">
+    <div class="selected-info-box" style="display: none;">
+        <div class="bubble"><span class="js-item-count">0</span>种，<span class="js-item-total">0</span>元</div>
+        <!--<div class="point-box"><div class="point"></div></div>-->
+    </div>
+    <div class="index foot-tab">
+        <a href="javascript:void(0)" class="">
+            <span class="meicai-icon-homepage"></span>
+            <div class="tab-text">首页</div>
+        </a>
+    </div>
+    <div class="allgoods foot-tab">
+        <a href="javascript:void(0)" class="">
+            <span class="meicai-icon-Basket2"></span>
+            <div class="tab-text">全部菜品</div>
+        </a>
+    </div>
+    <div class="cart foot-tab">
+        <a href="javascript:void(0)" class="">
+            <span class="meicai-icon-Group2"></span>
+            <div class="tab-text">购物车</div>
+        </a>
+    </div>
+    <div class="home foot-tab">
+        <a href="javascript:void(0)" class="active">
+            <span class="meicai-icon-my2"></span>
+            <div class="tab-text">我的</div>
+        </a>
+    </div>
+</div>
+<!-- 成功后才调用微信服务器端接口-->
+<!-- script type="text/javascript" src="./mine_files/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    wx.config({"appId":"wx5e3e0f48d8add3c9","timestamp":1458094939,"nonceStr":"m5cOPtEPCCDe5Xqz","signature":"a3b24bf396a235eee49491f56b2f163181f8cc1f","jsApiList":["getLocation","onMenuShareTimeline","onMenuShareAppMessage"]});
+</script>
+<script>
+    wx.ready(function () {
+        wx.onMenuShareTimeline({
+            title: '美菜商城', // 分享标题
+            link: '', // 分享链接
+            imgUrl: 'http://img.yunshanmeicai.com/meicai_icon.jpg', // 分享图标
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: '美菜商城', // 分享标题
+            desc: '美菜网，让天下餐厅没有难做的生意', // 分享描述
+            link: '', // 分享链接
+            imgUrl: 'http://img.yunshanmeicai.com/meicai_icon.jpg', // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+    });
+</script-->
+<script src="./mine_files/zepto.js"></script>
+<script src="./mine_files/all.js"></script>
+<script type="text/javascript">
+    footerActive.activeHome();
+    window.isPreview = true;
+    $(".foot-tab").bind('click',function(event){
+        var evt = event || window.event;
+        evt.stopPropagation ? evt.stopPropagation() : (evt.cancelBubble=true);
+    });
+</script>
+</body>
+</html>
