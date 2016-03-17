@@ -1,6 +1,6 @@
 /**
  * Created by lehoon on 2016/3/16.
- * ÅäÖÃÎÄ¼ş
+ * é…ç½®æ–‡ä»¶
  */
 
 module.exports = {

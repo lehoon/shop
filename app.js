@@ -11,7 +11,7 @@ var home = require('./routes/home');
 var log = require('./routes/logger');
 
 /**
- * ¶ÁÈ¡ÅäÖÃÎÄ¼ş
+ * è¯»å–é…ç½®æ–‡ä»¶
  * @type {*|exports|module.exports}
  */
 /*
